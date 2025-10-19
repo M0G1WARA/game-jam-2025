@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0v2ab5c0mnge"]
+
+[ext_resource type="PackedScene" uid="uid://dlful4wtjgk0l" path="res://Scenes/ObjectPanel/object_panel.tscn" id="1_33i1w"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="HPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 136)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="FlowContainer" type="FlowContainer" parent="HPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/h_separation = 40
+vertical = true
+
+[node name="ObjectPanel" parent="HPanel/FlowContainer" instance=ExtResource("1_33i1w")]
+layout_mode = 2
+
+[node name="ObjectPanel2" parent="HPanel/FlowContainer" instance=ExtResource("1_33i1w")]
+layout_mode = 2
+
+[node name="VPanel" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(136, 0)
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="FlowContainer" type="FlowContainer" parent="VPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/v_separation = 40
+
+[node name="ObjectPanel" parent="VPanel/FlowContainer" instance=ExtResource("1_33i1w")]
+layout_mode = 2
+
+[node name="ObjectPanel2" parent="VPanel/FlowContainer" instance=ExtResource("1_33i1w")]
+layout_mode = 2
