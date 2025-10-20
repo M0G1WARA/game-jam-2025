@@ -4,6 +4,11 @@ extends CanvasLayer
 
 func _ready():
 	if is_horizontal:
-		$HPanel.show()
+		$MarginContainer/HPanel.show()
 	else:
-		$VPanel.show()
+		$MarginContainer/VPanel.show()
+		$MarginContainer/BackButton.show()
+
+
+func _on_back_button_pressed():
+	get_tree().change_scene_to_file("res://Scenes/Game/game.tscn")

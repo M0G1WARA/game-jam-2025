@@ -6,47 +6,59 @@
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_5aai8")
 
-[node name="HPanel" type="Panel" parent="."]
-visible = false
-custom_minimum_size = Vector2(0, 136)
-anchors_preset = 12
-anchor_top = 1.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
-[node name="FlowContainer" type="FlowContainer" parent="HPanel"]
+[node name="VPanel" type="Panel" parent="MarginContainer"]
+visible = false
+custom_minimum_size = Vector2(136, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="FlowContainer" type="FlowContainer" parent="MarginContainer/VPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/v_separation = 40
+
+[node name="ObjectPanel" parent="MarginContainer/VPanel/FlowContainer" instance=ExtResource("1_33i1w")]
+layout_mode = 2
+
+[node name="ObjectPanel2" parent="MarginContainer/VPanel/FlowContainer" instance=ExtResource("1_33i1w")]
+layout_mode = 2
+
+[node name="HPanel" type="Panel" parent="MarginContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 136)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="FlowContainer" type="FlowContainer" parent="MarginContainer/HPanel"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_constants/h_separation = 40
 vertical = true
 
-[node name="ObjectPanel" parent="HPanel/FlowContainer" instance=ExtResource("1_33i1w")]
+[node name="ObjectPanel" parent="MarginContainer/HPanel/FlowContainer" instance=ExtResource("1_33i1w")]
 layout_mode = 2
 
-[node name="ObjectPanel2" parent="HPanel/FlowContainer" instance=ExtResource("1_33i1w")]
+[node name="ObjectPanel2" parent="MarginContainer/HPanel/FlowContainer" instance=ExtResource("1_33i1w")]
 layout_mode = 2
 
-[node name="VPanel" type="Panel" parent="."]
+[node name="BackButton" type="Button" parent="MarginContainer"]
 visible = false
-custom_minimum_size = Vector2(136, 0)
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 0
-grow_vertical = 2
-
-[node name="FlowContainer" type="FlowContainer" parent="VPanel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/v_separation = 40
-
-[node name="ObjectPanel" parent="VPanel/FlowContainer" instance=ExtResource("1_33i1w")]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "back"
 
-[node name="ObjectPanel2" parent="VPanel/FlowContainer" instance=ExtResource("1_33i1w")]
-layout_mode = 2
+[connection signal="pressed" from="MarginContainer/BackButton" to="." method="_on_back_button_pressed"]

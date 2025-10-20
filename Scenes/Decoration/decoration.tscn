@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0a6tiepq1tuq"]
+
+[ext_resource type="PackedScene" uid="uid://d0v2ab5c0mnge" path="res://Scenes/HUD/hud.tscn" id="1_4ki4x"]
+
+[node name="Decoration" type="Node2D"]
+
+[node name="HUD" parent="." instance=ExtResource("1_4ki4x")]
+is_horizontal = false
