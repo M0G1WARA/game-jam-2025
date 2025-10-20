@@ -17,4 +17,4 @@ func _on_area_2d_body_exited(body):
 
 func _input(event):
 	if event.is_action_pressed("ui_accept") and player_inside:
-		get_tree().change_scene_to_file("res://Scenes/Decoration/decoration.tscn")
+		get_parent().get_parent().decoration_show()

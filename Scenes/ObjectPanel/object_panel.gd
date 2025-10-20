@@ -24,8 +24,8 @@ func _on_gui_input(event):
 					preview.visible = false
 					var new_instance = scene_to_instance.instantiate()
 					new_instance.global_position = get_global_mouse_position()
-					get_owner().get_owner().add_child(new_instance)
-					
+					get_owner().get_owner().get_node("Node2D").add_child(new_instance)
+
 
 	if event is InputEventMouseMotion and is_dragging:
 		preview.global_position = get_global_mouse_position()

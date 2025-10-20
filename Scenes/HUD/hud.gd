@@ -11,4 +11,15 @@ func _ready():
 
 
 func _on_back_button_pressed():
-	get_tree().change_scene_to_file("res://Scenes/Game/game.tscn")
+	get_owner().decoration_hide()
+
+func toggle():
+	is_horizontal = !is_horizontal
+	if is_horizontal:
+		$MarginContainer/HPanel.show()
+		$MarginContainer/VPanel.hide()
+		$MarginContainer/BackButton.hide()
+	else:
+		$MarginContainer/HPanel.hide()
+		$MarginContainer/VPanel.show()
+		$MarginContainer/BackButton.show()
