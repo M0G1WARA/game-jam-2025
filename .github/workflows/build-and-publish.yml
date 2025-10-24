@@ -20,6 +20,12 @@ jobs:
         uses: actions/checkout@v2
         with:
           lfs: true
+      - name: Download export templates
+        run: |
+          wget https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}/Godot_v${GODOT_VERSION}-stable_export_templates.tpz
+          mkdir -p /root/.local/share/godot/templates/${GODOT_VERSION}.stable
+          tar -xf Godot_v${GODOT_VERSION}-stable_export_templates.tpz -C /root/.local/share/godot/templates/${GODOT_VERSION}.stable
+
       - name: Templates
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates
