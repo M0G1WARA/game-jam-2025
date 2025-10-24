@@ -1,4 +1,47 @@
-extends Node2D
+extends CanvasLayer
+
+var instanced_children: Dictionary = {}
+var object_scene = preload("res://Scenes/Object/object.tscn")
+var current_id: int = -1
+
+
+func _ready():
+	self.visibility_changed.connect(_on_visibility_changed)
 
 func set_data(data):
-	print("ID recibido: ", data["id"])
+	current_id = data.get("id", -1)
+	instanced_children[current_id] = instanced_children.get(current_id, [])
+
+func clear_objects():
+	for child in get_children():
+		if child.name == "ColorRect" or child.name == "Grave":
+			continue
+		child.queue_free()
+
+func save_objects():
+	if current_id == -1 or !instanced_children.has(current_id):
+		return
+	instanced_children[current_id] = []
+	for child in get_children():
+		if child.name == "ColorRect" or child.name == "Grave":
+			continue
+		instanced_children[current_id].append(child.position)
+
+func load_objects():
+	var objetos = instanced_children.get(current_id, [])
+	if objetos.is_empty() or current_id == -1:
+		return
+	
+	for pos in objetos:
+		var new_object = object_scene.instantiate()
+		new_object.position = pos
+		add_child(new_object)
+
+
+func _on_visibility_changed():
+	if visible:
+		clear_objects()
+		await get_tree().process_frame
+		load_objects()
+	else:
+		save_objects()

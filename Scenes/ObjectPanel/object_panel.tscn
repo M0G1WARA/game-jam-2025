@@ -1,19 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlful4wtjgk0l"]
+[gd_scene load_steps=3 format=3 uid="uid://dlful4wtjgk0l"]
 
 [ext_resource type="Texture2D" uid="uid://bv3n8pewrt5kc" path="res://icon.svg" id="1_xuri0"]
 [ext_resource type="Script" uid="uid://b33q3jqv705jl" path="res://Scenes/ObjectPanel/object_panel.gd" id="1_yenqj"]
-[ext_resource type="PackedScene" uid="uid://cmubliqqowr7d" path="res://Scenes/Grave/grave.tscn" id="2_yenqj"]
 
 [node name="ObjectPanel" type="Panel"]
 custom_minimum_size = Vector2(136, 136)
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_yenqj")
-scene_to_instance = ExtResource("2_yenqj")
-preview_texture = ExtResource("1_xuri0")
 
 [node name="Icon" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(68, 66)
 texture = ExtResource("1_xuri0")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0v2ab5c0mnge"]
+[gd_scene load_steps=2 format=3 uid="uid://d0v2ab5c0mnge"]
 
 [ext_resource type="Script" uid="uid://b3lhgng8n7yq4" path="res://Scenes/HUD/hud.gd" id="1_5aai8"]
-[ext_resource type="PackedScene" uid="uid://dlful4wtjgk0l" path="res://Scenes/ObjectPanel/object_panel.tscn" id="1_33i1w"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_5aai8")
@@ -29,12 +28,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 theme_override_constants/v_separation = 40
 
-[node name="ObjectPanel" parent="MarginContainer/VPanel/FlowContainer" instance=ExtResource("1_33i1w")]
-layout_mode = 2
-
-[node name="ObjectPanel2" parent="MarginContainer/VPanel/FlowContainer" instance=ExtResource("1_33i1w")]
-layout_mode = 2
-
 [node name="HPanel" type="Panel" parent="MarginContainer"]
 visible = false
 custom_minimum_size = Vector2(0, 136)
@@ -47,12 +40,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 theme_override_constants/h_separation = 40
 vertical = true
-
-[node name="ObjectPanel" parent="MarginContainer/HPanel/FlowContainer" instance=ExtResource("1_33i1w")]
-layout_mode = 2
-
-[node name="ObjectPanel2" parent="MarginContainer/HPanel/FlowContainer" instance=ExtResource("1_33i1w")]
-layout_mode = 2
 
 [node name="BackButton" type="Button" parent="MarginContainer"]
 visible = false
