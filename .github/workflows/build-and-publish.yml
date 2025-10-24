@@ -41,7 +41,7 @@ jobs:
       - name: Web Build
         run: |
           ls
-          godot -v --headless --export-release "HTML5" ../build/web/index.html
+          godot -v --headless --export-release "Web" ../build/web/index.html
       - name: Windows Build
         run: |
           ls
