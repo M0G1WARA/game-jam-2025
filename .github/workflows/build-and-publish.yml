@@ -17,43 +17,45 @@ jobs:
       image: barichello/godot-ci:4.5.1
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           lfs: true
-      - name: Templates
+
+      - name: Setup
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates/
           mkdir -v -p ~/.config/
           mv /root/.config/godot ~/.config/godot
           mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
-      - name: GitHub Tag Name
-        run: |
-         echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
-         echo "Tag name from github.ref_name: ${{  github.ref_name }}"
+
       - name: Setup folders
         run: |
           mkdir -p .godot/editor .godot/imported
-          mkdir -v -p build/windows
-          mkdir -v -p build/web
-          mkdir -v -p build/linux
-          mkdir -v -p build/mac
+          mkdir -p build/web
+          mkdir -p build/windows
+          mkdir -p build/linux
+          mkdir -p build/mac
           echo "$GITHUB_REF" > build/version.txt
+
       - name: Web Build
         run: |
-          ls
-          godot -v --headless --export-release "Web" ../build/web/index.html
+          EXPORT_DIR="$(pwd)/build"
+          godot -v --headless --export-release "Web" "$EXPORT_DIR/web/index.html"
+
       - name: Windows Build
         run: |
-          ls
-          godot -v --headless --export-release "Windows Desktop" ../build/windows/$EXPORT_NAME.exe
+          EXPORT_DIR="$(pwd)/build"
+          godot -v --headless --export-release "Windows Desktop" "$EXPORT_DIR/windows/$EXPORT_NAME.exe"
+
       - name: Linux Build
         run: |
-          ls
-          godot -v --headless --export-release "Linux" ../build/linux/$EXPORT_NAME.x86_64
+          EXPORT_DIR="$(pwd)/build"
+          godot -v --headless --export-release "Linux" "$EXPORT_DIR/linux/$EXPORT_NAME.x86_64"
+
       - name: Mac Build
         run: |
-          ls
-          godot -v --headless --export-release "macOS" ../build/mac/$EXPORT_NAME.zip
+          EXPORT_DIR="$(pwd)/build"
+          godot -v --headless --export-release "macOS" "$EXPORT_DIR/mac/$EXPORT_NAME.zip"
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
