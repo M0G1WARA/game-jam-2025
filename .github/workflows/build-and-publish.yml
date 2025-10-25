@@ -21,13 +21,18 @@ jobs:
         with:
           lfs: true
 
-      - name: Setup
+      - name: Templates
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates/
           mkdir -v -p ~/.config/
           mv /root/.config/godot ~/.config/godot
           mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
 
+      - name: GitHub Tag Name
+        run: |
+         echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
+         echo "Tag name from github.ref_name: ${{  github.ref_name }}"
+         
       - name: Setup folders
         run: |
           mkdir -p .godot/editor .godot/imported
@@ -64,12 +69,12 @@ jobs:
   release-itchio:
     name: To itchio
     needs: build  
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     container:
       image: barichello/godot-ci:4.5.1
     steps:
       - name: Download build 
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: my-builds
       - name: Listar archivos en la carpeta
