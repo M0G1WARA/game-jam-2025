@@ -1,13 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://bq7qhmqsk3qfp"]
 
 [ext_resource type="Script" uid="uid://012nsn78lnrf" path="res://Scenes/Object/object.gd" id="1_ocmyd"]
-[ext_resource type="Texture2D" uid="uid://d1qq0l3c77li" path="res://Assets/Images/flor.png" id="2_7isqc"]
+[ext_resource type="Texture2D" uid="uid://badv2qwkjdhjk" path="res://Assets/Images/elements.png" id="3_1se88"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6oa7m"]
 
 [node name="Object" type="StaticBody2D"]
 script = ExtResource("1_ocmyd")
-available_textures = Array[Texture2D]([ExtResource("2_7isqc")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_6oa7m")
@@ -18,3 +17,9 @@ offset_left = -20.0
 offset_top = -20.0
 offset_right = 20.0
 offset_bottom = 20.0
+
+[node name="Elements" type="Sprite2D" parent="."]
+position = Vector2(-9, 4)
+texture = ExtResource("3_1se88")
+hframes = 8
+vframes = 4

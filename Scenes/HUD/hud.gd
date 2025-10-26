@@ -6,22 +6,18 @@ const OBJECT_PANEL_SCENE = preload("res://Scenes/ObjectPanel/object_panel.tscn")
 var panel_data_h = [
 	{
 		"scene_to_instance": preload("res://Scenes/Grave/grave.tscn"),
-		"preview_texture": preload("res://Assets/Images/grave.png")
 	},
 	{
 		"scene_to_instance": preload("res://Scenes/Grave/grave.tscn"),
-		"preview_texture": preload("res://Assets/Images/grave.png")
 	},
 ]
 
 var panel_data_v = [
 	{
 		"scene_to_instance": preload("res://Scenes/Object/object.tscn"),
-		"preview_texture": preload("res://Assets/Images/flor.png")
 	},
 	{
 		"scene_to_instance": preload("res://Scenes/Object/object.tscn"),
-		"preview_texture": preload("res://Assets/Images/flor.png")
 	},
 ]
 
@@ -53,14 +49,16 @@ func toggle():
 		$MarginContainer/BackButton.show()
 
 func create_object_panels():
-	for data in panel_data_h:
+	for i in range(panel_data_h.size()):
 		var new_panel = OBJECT_PANEL_SCENE.instantiate()
+		var data = panel_data_h[i]
+		new_panel.frame_index = i
 		new_panel.scene_to_instance = data.scene_to_instance
-		new_panel.preview_texture = data.preview_texture
 		flow_containerH.add_child(new_panel)
 
-	for data in panel_data_v:
+	for i in range(panel_data_v.size()):
 		var new_panel = OBJECT_PANEL_SCENE.instantiate()
+		new_panel.frame_index = i
+		var data = panel_data_v[i]
 		new_panel.scene_to_instance = data.scene_to_instance
-		new_panel.preview_texture = data.preview_texture
 		flow_containerV.add_child(new_panel)
