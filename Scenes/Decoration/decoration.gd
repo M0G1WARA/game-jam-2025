@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Node2D
 
 var instanced_children: Dictionary = {}
 var object_scene = preload("res://Scenes/Object/object.tscn")

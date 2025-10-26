@@ -28,3 +28,5 @@ position = Vector2(596, 358)
 visible = false
 
 [node name="HUD" parent="." instance=ExtResource("2_qxfds")]
+
+[node name="Light" type="CanvasModulate" parent="."]

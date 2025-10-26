@@ -48,4 +48,21 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "back"
 
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "
+Luz"
+
+[node name="VSlider" type="VSlider" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+value = 1.0
+
 [connection signal="pressed" from="MarginContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/VSlider" to="." method="_on_v_slider_value_changed"]

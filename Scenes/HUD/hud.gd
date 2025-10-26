@@ -62,3 +62,8 @@ func create_object_panels():
 		var data = panel_data_v[i]
 		new_panel.scene_to_instance = data.scene_to_instance
 		flow_containerV.add_child(new_panel)
+
+
+func _on_v_slider_value_changed(value):
+	get_owner().get_node("Light").color = Color(value, value, value, 255)
+	print(value)

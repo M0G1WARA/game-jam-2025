@@ -3,13 +3,18 @@
 [ext_resource type="Script" uid="uid://dlkmpf0uqrwqg" path="res://Scenes/Decoration/decoration.gd" id="1_4ki4x"]
 [ext_resource type="Texture2D" uid="uid://bthjlrrs7afg1" path="res://Assets/Images/grave.png" id="2_8mlsl"]
 
-[node name="Decoration" type="CanvasLayer"]
+[node name="Decoration" type="Node2D"]
 script = ExtResource("1_4ki4x")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1280, 720)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -63.0
+offset_right = 1216.0
+offset_bottom = 657.0
 grow_horizontal = 2
 grow_vertical = 2
 
