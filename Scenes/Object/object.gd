@@ -1,7 +1,5 @@
 extends StaticBody2D
 
-@onready var object_image = $TextureRect as TextureRect
-
 
 func _ready():
 	assign_image_by_id(0)

@@ -24,10 +24,11 @@ func _on_gui_input(event):
 					is_dragging = false
 					preview.visible = false
 					var new_instance = scene_to_instance.instantiate()
-					new_instance.global_position = get_global_mouse_position()
 					if get_parent().get_parent().name == "HPanel":
+						new_instance.global_position = get_viewport().get_canvas_transform().affine_inverse() * get_viewport().get_mouse_position()
 						get_parent().get_parent().get_parent().get_parent().get_parent().get_node("Node2D").add_child(new_instance)
 					else:
+						new_instance.global_position = get_global_mouse_position()
 						get_parent().get_parent().get_parent().get_parent().get_parent().get_node("Decoration").add_child(new_instance)
 
 	if event is InputEventMouseMotion and is_dragging:

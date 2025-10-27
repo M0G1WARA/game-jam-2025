@@ -21,3 +21,7 @@ grow_vertical = 2
 [node name="Grave" type="Sprite2D" parent="."]
 position = Vector2(569, 312)
 texture = ExtResource("2_8mlsl")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(577, 325)
+enabled = false

@@ -28,19 +28,14 @@ script = ExtResource("1_ocmyd")
 shape = SubResource("RectangleShape2D_6oa7m")
 disabled = true
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-
 [node name="Elements" type="Sprite2D" parent="."]
-position = Vector2(-9, 4)
+position = Vector2(0, 1)
 texture = ExtResource("3_1se88")
 hframes = 8
 vframes = 4
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
 z_index = 10
 material = SubResource("CanvasItemMaterial_7isqc")
 color = Color(1, 0.65882355, 0.47058824, 1)

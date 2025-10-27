@@ -40,8 +40,12 @@ func load_objects():
 
 func _on_visibility_changed():
 	if visible:
+		Global.is_decorating = true
+		get_owner().get_node("Player").toogle_camera(false)
 		clear_objects()
 		await get_tree().process_frame
 		load_objects()
 	else:
+		Global.is_decorating = false
+		get_owner().get_node("Player").toogle_camera(true)
 		save_objects()
