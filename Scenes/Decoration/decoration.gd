@@ -25,16 +25,17 @@ func save_objects():
 	for child in get_children():
 		if child.name == "ColorRect" or child.name == "Grave":
 			continue
-		instanced_children[current_id].append(child.position)
+		instanced_children[current_id].append([child.position, child.get_image_id()])
 
 func load_objects():
 	var objetos = instanced_children.get(current_id, [])
 	if objetos.is_empty() or current_id == -1:
 		return
 	
-	for pos in objetos:
+	for child_data in objetos:
 		var new_object = object_scene.instantiate()
-		new_object.position = pos
+		new_object.position = child_data[0]
+		new_object.assign_image_by_id(child_data[1])
 		add_child(new_object)
 
 

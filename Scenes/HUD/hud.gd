@@ -66,4 +66,3 @@ func create_object_panels():
 
 func _on_v_slider_value_changed(value):
 	get_owner().get_node("Light").color = Color(value, value, value, 255)
-	print(value)
