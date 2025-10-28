@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1qq0l3c77li"
-path="res://.godot/imported/flor.png-804d1ba74c2f21a2b7c366fceee7a875.ctex"
+uid="uid://cmbrhy6nimsqx"
+path="res://.godot/imported/graves.png-a54ee530fd852673e2cf03d9128343d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/flor.png"
-dest_files=["res://.godot/imported/flor.png-804d1ba74c2f21a2b7c366fceee7a875.ctex"]
+source_file="res://Assets/Images/graves.png"
+dest_files=["res://.godot/imported/graves.png-a54ee530fd852673e2cf03d9128343d2.ctex"]
 
 [params]
 

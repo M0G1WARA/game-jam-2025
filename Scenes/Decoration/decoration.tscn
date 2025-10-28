@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c0a6tiepq1tuq"]
 
 [ext_resource type="Script" uid="uid://dlkmpf0uqrwqg" path="res://Scenes/Decoration/decoration.gd" id="1_4ki4x"]
-[ext_resource type="Texture2D" uid="uid://bthjlrrs7afg1" path="res://Assets/Images/grave.png" id="2_8mlsl"]
+[ext_resource type="Texture2D" uid="uid://cmbrhy6nimsqx" path="res://Assets/Images/graves.png" id="2_8mlsl"]
 
 [node name="Decoration" type="Node2D"]
 script = ExtResource("1_4ki4x")
@@ -18,9 +18,12 @@ offset_bottom = 657.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Grave" type="Sprite2D" parent="."]
-position = Vector2(569, 312)
+[node name="Graves" type="Sprite2D" parent="."]
+position = Vector2(520, 295)
+scale = Vector2(1.3, 1.3)
 texture = ExtResource("2_8mlsl")
+hframes = 2
+vframes = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 325)

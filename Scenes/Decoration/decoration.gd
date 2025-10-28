@@ -14,7 +14,7 @@ func set_data(data):
 
 func clear_objects():
 	for child in get_children():
-		if child.name == "ColorRect" or child.name == "Grave":
+		if child.name == "ColorRect" or child.name == "Graves":
 			continue
 		child.queue_free()
 
@@ -23,7 +23,7 @@ func save_objects():
 		return
 	instanced_children[current_id] = []
 	for child in get_children():
-		if child.name == "ColorRect" or child.name == "Grave":
+		if child.name == "ColorRect" or child.name == "Graves":
 			continue
 		instanced_children[current_id].append([child.position, child.get_image_id()])
 

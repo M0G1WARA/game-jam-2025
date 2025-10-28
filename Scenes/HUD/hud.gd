@@ -3,23 +3,12 @@ extends CanvasLayer
 @export var is_horizontal: bool = true
 const OBJECT_PANEL_SCENE = preload("res://Scenes/ObjectPanel/object_panel.tscn")
 
-var panel_data_h = [
-	{
-		"scene_to_instance": preload("res://Scenes/Grave/grave.tscn"),
-	},
-	{
-		"scene_to_instance": preload("res://Scenes/Grave/grave.tscn"),
-	},
-]
 
-var panel_data_v = [
-	{
-		"scene_to_instance": preload("res://Scenes/Object/object.tscn"),
-	},
-	{
-		"scene_to_instance": preload("res://Scenes/Object/object.tscn"),
-	},
-]
+var scene_to_instance_grave = preload("res://Scenes/Grave/grave.tscn")
+var graves = 4
+
+var scene_to_instance_object = preload("res://Scenes/Object/object.tscn")
+var objects = 2
 
 @onready var flow_containerH = $MarginContainer/HPanel/FlowContainer
 @onready var flow_containerV = $MarginContainer/VPanel/FlowContainer
@@ -49,18 +38,16 @@ func toggle():
 		$MarginContainer/BackButton.show()
 
 func create_object_panels():
-	for i in range(panel_data_h.size()):
+	for i in range(graves):
 		var new_panel = OBJECT_PANEL_SCENE.instantiate()
-		var data = panel_data_h[i]
 		new_panel.frame_index = i
-		new_panel.scene_to_instance = data.scene_to_instance
+		new_panel.scene_to_instance = scene_to_instance_grave
 		flow_containerH.add_child(new_panel)
 
-	for i in range(panel_data_v.size()):
+	for i in range(objects):
 		var new_panel = OBJECT_PANEL_SCENE.instantiate()
 		new_panel.frame_index = i
-		var data = panel_data_v[i]
-		new_panel.scene_to_instance = data.scene_to_instance
+		new_panel.scene_to_instance = scene_to_instance_object
 		flow_containerV.add_child(new_panel)
 
 

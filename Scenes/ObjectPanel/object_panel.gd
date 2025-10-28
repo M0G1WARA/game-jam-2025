@@ -8,8 +8,16 @@ var preview: Sprite2D
 
 
 func _ready():
-	$Elements.frame = frame_index
-	preview = $Elements.duplicate()
+	if get_parent().get_parent().name == "HPanel":
+		$Graves.show()
+		$Graves.frame = frame_index
+		preview = $Graves.duplicate()
+
+	else:
+		$Elements.show()
+		$Elements.frame = frame_index
+		preview = $Elements.duplicate()
+		
 	add_child(preview)
 	preview.visible = false
 
@@ -26,6 +34,7 @@ func _on_gui_input(event):
 					var new_instance = scene_to_instance.instantiate()
 					if get_parent().get_parent().name == "HPanel":
 						new_instance.global_position = get_viewport().get_canvas_transform().affine_inverse() * get_viewport().get_mouse_position()
+						new_instance.assign_image_by_id(frame_index)
 						get_parent().get_parent().get_parent().get_parent().get_parent().get_node("Node2D").add_child(new_instance)
 					else:
 						new_instance.global_position = get_global_mouse_position()

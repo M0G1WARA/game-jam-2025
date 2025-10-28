@@ -23,3 +23,9 @@ func _input(event):
 	if event.is_action_pressed("ui_accept") and player_inside:
 		var data = {"id": object_id}
 		get_parent().get_parent().decoration_show(data)
+
+func assign_image_by_id(texture_id: int):
+	if texture_id <= 4:
+		$Graves.frame = texture_id
+	else:
+		print("Error: ID de textura '", texture_id, "' fuera de rango.")

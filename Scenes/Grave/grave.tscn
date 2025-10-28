@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cmubliqqowr7d"]
 
 [ext_resource type="Script" uid="uid://db3t14u60j2xi" path="res://Scenes/Grave/grave.gd" id="1_hnudw"]
-[ext_resource type="Texture2D" uid="uid://bthjlrrs7afg1" path="res://Assets/Images/grave.png" id="2_hnudw"]
+[ext_resource type="Texture2D" uid="uid://cmbrhy6nimsqx" path="res://Assets/Images/graves.png" id="2_hnudw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnudw"]
 
@@ -20,9 +20,11 @@ shape = SubResource("RectangleShape2D_hnudw")
 scale = Vector2(20, 20)
 shape = SubResource("CircleShape2D_jjkqu")
 
-[node name="Grave" type="Sprite2D" parent="."]
-position = Vector2(12, -53)
+[node name="Graves" type="Sprite2D" parent="."]
+position = Vector2(-29, -78)
 texture = ExtResource("2_hnudw")
+hframes = 2
+vframes = 2
 
 [node name="Label" type="Label" parent="."]
 visible = false
