@@ -14,3 +14,15 @@ func assign_image_by_id(texture_id: int):
 
 func get_image_id()->int:
 	return image_id
+
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_RIGHT:
+			if Global.options_visible:
+				$Button.show()
+			else:
+				$Button.hide()
+
+
+func _on_button_pressed():
+	queue_free()

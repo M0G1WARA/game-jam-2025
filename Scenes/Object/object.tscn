@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bq7qhmqsk3qfp"]
+[gd_scene load_steps=8 format=3 uid="uid://bq7qhmqsk3qfp"]
 
 [ext_resource type="Script" uid="uid://012nsn78lnrf" path="res://Scenes/Object/object.gd" id="1_ocmyd"]
 [ext_resource type="Texture2D" uid="uid://badv2qwkjdhjk" path="res://Assets/Images/elements.png" id="3_1se88"]
@@ -21,6 +21,9 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7isqc"]
+bg_color = Color(0.80817604, 0, 0, 1)
+
 [node name="Object" type="StaticBody2D"]
 script = ExtResource("1_ocmyd")
 
@@ -40,3 +43,14 @@ z_index = 10
 material = SubResource("CanvasItemMaterial_7isqc")
 color = Color(1, 0.65882355, 0.47058824, 1)
 texture = SubResource("GradientTexture2D_1se88")
+
+[node name="Button" type="Button" parent="."]
+visible = false
+offset_left = -46.0
+offset_top = 37.0
+offset_right = 26.0
+offset_bottom = 68.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_7isqc")
+text = "Eliminar"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

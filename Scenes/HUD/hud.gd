@@ -66,3 +66,9 @@ func create_object_panels():
 
 func _on_v_slider_value_changed(value):
 	get_owner().get_node("Light").color = Color(value, value, value, 255)
+	
+
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
+			Global.options_visible = not Global.options_visible

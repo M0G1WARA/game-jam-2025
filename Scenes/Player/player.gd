@@ -13,4 +13,3 @@ func _physics_process(_delta):
 
 func toogle_camera(value: bool):
 	$Camera2D.enabled = value
-	#$Camera2D.make_current()
