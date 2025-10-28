@@ -10,6 +10,7 @@ func _ready():
 
 func set_data(data):
 	current_id = data.get("id", -1)
+	$Graves.frame = data.get("frame_id", 0)
 	instanced_children[current_id] = instanced_children.get(current_id, [])
 
 func clear_objects():

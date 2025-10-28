@@ -41,6 +41,7 @@ vframes = 4
 visible = false
 z_index = 10
 material = SubResource("CanvasItemMaterial_7isqc")
+position = Vector2(0, -34)
 color = Color(1, 0.65882355, 0.47058824, 1)
 texture = SubResource("GradientTexture2D_1se88")
 
