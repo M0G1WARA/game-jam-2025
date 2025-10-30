@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmubliqqowr7d"]
+[gd_scene load_steps=7 format=3 uid="uid://cmubliqqowr7d"]
 
 [ext_resource type="Script" uid="uid://db3t14u60j2xi" path="res://Scenes/Grave/grave.gd" id="1_hnudw"]
 [ext_resource type="Texture2D" uid="uid://cmbrhy6nimsqx" path="res://Assets/Images/graves.png" id="2_hnudw"]
+[ext_resource type="FontFile" uid="uid://bi7q65npobhdr" path="res://Font/Yeast/Yeast.otf" id="3_jjkqu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnudw"]
 
@@ -31,13 +32,17 @@ hframes = 2
 vframes = 2
 
 [node name="Label" type="Label" parent="."]
-offset_left = -19.0
-offset_top = -99.0
-offset_right = 21.0
-offset_bottom = -76.0
-text = "TEXT"
+visible = false
+offset_left = -133.0
+offset_top = -175.0
+offset_right = 16.0
+offset_bottom = -141.0
+theme_override_fonts/font = ExtResource("3_jjkqu")
+theme_override_font_sizes/font_size = 40
+text = "Decorar"
 
 [node name="Area2D2" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 0
 

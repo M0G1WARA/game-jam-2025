@@ -21,6 +21,7 @@ hframes = 8
 vframes = 4
 
 [node name="Graves" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(58, 63)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("3_c4w30")
