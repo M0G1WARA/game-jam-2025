@@ -12,6 +12,9 @@ func _ready():
 		$Graves.show()
 		$Graves.frame = frame_index
 		preview = $Graves.duplicate()
+		#preview.get_node("Area2D").set_collision_layer_value(1, true)
+		preview.get_node("Area2D/CollisionShape2D").disabled = false
+		preview.get_node("Area2D").set_collision_mask_value(2, true)
 
 	else:
 		$Elements.show()
@@ -31,15 +34,23 @@ func _on_gui_input(event):
 				if is_dragging:
 					is_dragging = false
 					preview.visible = false
-					var new_instance = scene_to_instance.instantiate()
-					if get_parent().get_parent().name == "HPanel":
+					if get_parent().get_parent().name == "HPanel" and preview.get_node("ColorRect").visible == false:
+						var new_instance = scene_to_instance.instantiate()
 						new_instance.global_position = get_viewport().get_canvas_transform().affine_inverse() * get_viewport().get_mouse_position()
 						new_instance.assign_image_by_id(frame_index)
 						get_parent().get_parent().get_parent().get_parent().get_parent().get_node("Node2D").add_child(new_instance)
 					else:
+						var new_instance = scene_to_instance.instantiate()
 						new_instance.global_position = get_global_mouse_position()
 						new_instance.assign_image_by_id(frame_index)
 						get_parent().get_parent().get_parent().get_parent().get_parent().get_node("Decoration").add_child(new_instance)
 
 	if event is InputEventMouseMotion and is_dragging:
 		preview.global_position = get_global_mouse_position()
+
+func _on_area_2d_area_entered(_area):
+	preview.get_node("ColorRect").show()
+
+
+func _on_area_2d_area_exited(_area):
+	preview.get_node("ColorRect").hide()
