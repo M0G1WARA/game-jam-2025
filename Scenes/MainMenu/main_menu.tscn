@@ -7,6 +7,33 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0qgbs"]
 
+[sub_resource type="Animation" id="Animation_adu2g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/Subtitle:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.929643, 0.48778403, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/Title:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.929643, 0.48778403, 0, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_0qgbs"]
 resource_name = "new_animation"
 length = 2.0
@@ -33,33 +60,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0.92941177, 0.4862745, 0, 0.4117647), Color(0.929643, 0.48778403, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_adu2g"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/Subtitle:theme_override_colors/font_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.929643, 0.48778403, 0, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("VBoxContainer/Title:theme_override_colors/font_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.929643, 0.48778403, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0l8wx"]
@@ -129,6 +129,15 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_0qgbs")
 text = "Jugar"
 flat = true
 
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.92941177, 0.4862745, 0, 1)
+theme_override_fonts/font = ExtResource("3_0qgbs")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0qgbs")
+text = "Controles"
+flat = true
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_0qgbs")
 volume_db = -10.0
@@ -141,3 +150,4 @@ libraries = {
 autoplay = "new_animation"
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
