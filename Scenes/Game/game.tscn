@@ -1,10 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdqck0axfiww1"]
+[gd_scene load_steps=5 format=3 uid="uid://bdqck0axfiww1"]
 
 [ext_resource type="Script" uid="uid://bvjlmy4upx3gl" path="res://Scenes/Game/game.gd" id="1_qikps"]
 [ext_resource type="PackedScene" uid="uid://d0v2ab5c0mnge" path="res://Scenes/HUD/hud.tscn" id="2_qxfds"]
-[ext_resource type="PackedScene" uid="uid://c0a6tiepq1tuq" path="res://Scenes/Decoration/decoration.tscn" id="4_i1e5p"]
 [ext_resource type="Texture2D" uid="uid://c4xr4w47mu0xy" path="res://Assets/Images/bg.jpg" id="5_ciybh"]
-[ext_resource type="AudioStream" uid="uid://dxvbmpst1up3p" path="res://Music/black-box-cozy-forest-122347.mp3" id="6_flgk0"]
 [ext_resource type="PackedScene" uid="uid://cpcbca33vrota" path="res://Scenes/Camera/camera.tscn" id="6_vifcx"]
 
 [node name="Game" type="Node2D"]
@@ -22,16 +20,8 @@ texture = ExtResource("5_ciybh")
 
 [node name="Node2D" type="Node2D" parent="."]
 
-[node name="Decoration" parent="." instance=ExtResource("4_i1e5p")]
-visible = false
-
 [node name="HUD" parent="." instance=ExtResource("2_qxfds")]
 
-[node name="Light" type="CanvasModulate" parent="."]
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_flgk0")
-volume_db = -20.0
-autoplay = true
-
 [node name="Camera" parent="." instance=ExtResource("6_vifcx")]
+
+[node name="Light" type="CanvasModulate" parent="."]

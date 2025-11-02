@@ -15,8 +15,8 @@ func assign_image_by_id(texture_id: int):
 
 
 func _on_button_pressed():
-	var data = {"id": object_id, "frame_id" : $Graves.frame }
-	get_parent().get_parent().decoration_show(data)
+	Global.decoration_data = {"id": object_id, "frame_id": $Graves.frame}
+	get_tree().change_scene_to_file("res://Scenes/Decoration/decoration.tscn")
 
 
 func _on_area_2d_mouse_entered():

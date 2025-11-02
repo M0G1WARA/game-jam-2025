@@ -18,24 +18,17 @@ func _ready():
 	
 	if is_horizontal:
 		$MarginContainer/HPanel.show()
-	else:
-		$MarginContainer/VPanel.show()
-		$MarginContainer/BackButton.show()
-
-
-func _on_back_button_pressed():
-	get_owner().decoration_hide()
-
-func toggle():
-	is_horizontal = !is_horizontal
-	if is_horizontal:
-		$MarginContainer/HPanel.show()
 		$MarginContainer/VPanel.hide()
 		$MarginContainer/BackButton.hide()
 	else:
 		$MarginContainer/HPanel.hide()
 		$MarginContainer/VPanel.show()
 		$MarginContainer/BackButton.show()
+
+
+func _on_back_button_pressed():
+	get_owner().save_objects()
+
 
 func create_object_panels():
 	for i in range(graves):
@@ -52,7 +45,10 @@ func create_object_panels():
 
 
 func _on_v_slider_value_changed(value):
-	get_owner().get_node("Light").color = Color(value, value, value, 255)
+	if is_horizontal:
+		get_owner().get_node("Light").color = Color(value, value, value, 255)
+	else:
+		get_owner().get_node("Default").get_node("Light").color = Color(value, value, value, 255)
 	
 
 func _input(event):

@@ -1,12 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0a6tiepq1tuq"]
+[gd_scene load_steps=4 format=3 uid="uid://c0a6tiepq1tuq"]
 
 [ext_resource type="Script" uid="uid://dlkmpf0uqrwqg" path="res://Scenes/Decoration/decoration.gd" id="1_4ki4x"]
 [ext_resource type="Texture2D" uid="uid://cmbrhy6nimsqx" path="res://Assets/Images/graves.png" id="2_8mlsl"]
+[ext_resource type="PackedScene" uid="uid://d0v2ab5c0mnge" path="res://Scenes/HUD/hud.tscn" id="3_aet3s"]
 
 [node name="Decoration" type="Node2D"]
 script = ExtResource("1_4ki4x")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Default" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Default"]
 custom_minimum_size = Vector2(1280, 720)
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,13 +21,17 @@ offset_bottom = 657.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Graves" type="Sprite2D" parent="."]
+[node name="Graves" type="Sprite2D" parent="Default"]
 position = Vector2(520, 295)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("2_8mlsl")
 hframes = 2
 vframes = 2
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="Default"]
 position = Vector2(577, 325)
-enabled = false
+
+[node name="HUD" parent="Default" instance=ExtResource("3_aet3s")]
+is_horizontal = false
+
+[node name="Light" type="CanvasModulate" parent="Default"]
