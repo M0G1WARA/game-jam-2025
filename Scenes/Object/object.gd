@@ -3,6 +3,10 @@ extends StaticBody2D
 var image_id = 0
 var light_objects = [1]
 
+func _ready():
+	get_parent().get_node("Default").get_node("HUD").get_node("MarginContainer").get_node("EditButton").connect("pressed", Callable(self, "options"))
+	options()
+
 func assign_image_by_id(texture_id: int):
 	if texture_id <= 31:
 		image_id = texture_id
@@ -18,11 +22,13 @@ func get_image_id()->int:
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_RIGHT:
-			if Global.options_visible:
-				$Button.show()
-			else:
-				$Button.hide()
+			options()
 
+func options():
+	if Global.options_visible:
+		$Button.show()
+	else:
+		$Button.hide()
 
 func _on_button_pressed():
 	queue_free()

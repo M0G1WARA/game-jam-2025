@@ -13,6 +13,7 @@ var objects = 2
 @onready var flow_containerH = $MarginContainer/HPanel/FlowContainer
 @onready var flow_containerV = $MarginContainer/VPanel/FlowContainer
 
+
 func _ready():
 	create_object_panels()
 	
@@ -20,10 +21,12 @@ func _ready():
 		$MarginContainer/HPanel.show()
 		$MarginContainer/VPanel.hide()
 		$MarginContainer/BackButton.hide()
+		$MarginContainer/EditButton.hide()
 	else:
 		$MarginContainer/HPanel.hide()
 		$MarginContainer/VPanel.show()
 		$MarginContainer/BackButton.show()
+		$MarginContainer/EditButton.show()
 
 
 func _on_back_button_pressed():
@@ -49,9 +52,7 @@ func _on_v_slider_value_changed(value):
 		get_owner().get_node("Light").color = Color(value, value, value, 255)
 	else:
 		get_owner().get_node("Default").get_node("Light").color = Color(value, value, value, 255)
-	
 
-func _input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
-			Global.options_visible = not Global.options_visible
+
+func _on_edit_button_pressed():
+	Global.options_visible = not Global.options_visible
