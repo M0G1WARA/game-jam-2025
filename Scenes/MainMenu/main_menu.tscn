@@ -130,6 +130,7 @@ text = "Jugar"
 flat = true
 
 [node name="Button2" type="Button" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.92941177, 0.4862745, 0, 1)
 theme_override_fonts/font = ExtResource("3_0qgbs")

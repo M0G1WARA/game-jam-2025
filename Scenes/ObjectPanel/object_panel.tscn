@@ -1,8 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dlful4wtjgk0l"]
+[gd_scene load_steps=6 format=3 uid="uid://dlful4wtjgk0l"]
 
 [ext_resource type="Script" uid="uid://b33q3jqv705jl" path="res://Scenes/ObjectPanel/object_panel.gd" id="1_yenqj"]
 [ext_resource type="Texture2D" uid="uid://cmbrhy6nimsqx" path="res://Assets/Images/graves.png" id="3_c4w30"]
 [ext_resource type="Texture2D" uid="uid://badv2qwkjdhjk" path="res://Assets/Images/elements.png" id="3_yenqj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yenqj"]
+bg_color = Color(0.6, 0.9411765, 0.827451, 0.49803922)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yenqj"]
 
@@ -10,6 +17,7 @@
 custom_minimum_size = Vector2(136, 136)
 offset_right = 40.0
 offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yenqj")
 script = ExtResource("1_yenqj")
 
 [node name="Elements" type="Sprite2D" parent="."]

@@ -11,3 +11,6 @@ var next_id = 1
 func get_new_id():
 	next_id += 1
 	return next_id - 1
+
+var instanced_graves = []
+var instanced_objects: Dictionary = {}
