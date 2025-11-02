@@ -13,11 +13,17 @@ config_version=5
 config/name="GameJam2025"
 run/main_scene="uid://gqlnxp4hi0je"
 config/features=PackedStringArray("4.5", "GL Compatibility")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*res://Global/Global.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
 
 [rendering]
 
