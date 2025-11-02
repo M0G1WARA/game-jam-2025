@@ -2,7 +2,7 @@ extends StaticBody2D
 
 
 var object_id: int
-
+var object_scene = preload("res://Scenes/Object/object.tscn")
 
 func assign_image_by_id(texture_id: int):
 	if texture_id <= 4:
@@ -32,3 +32,18 @@ func get_id()->int:
 	
 func set_id(id = Global.get_new_id()):
 	object_id = id
+	load_objects()
+	
+func load_objects():
+	var grave_node= $Graves
+	var objetos = Global.instanced_objects.get(object_id, [])
+	if objetos.is_empty():
+		return
+	
+	for child_data in objetos:
+		var new_object = object_scene.instantiate()
+		new_object.position  = grave_node.position + Vector2(child_data[0])
+		new_object.scale.x = 0.7
+		new_object.scale.y = 0.7
+		new_object.assign_image_by_id(child_data[1])
+		add_child(new_object)

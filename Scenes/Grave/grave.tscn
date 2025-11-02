@@ -28,7 +28,6 @@ scale = Vector2(20, 20)
 shape = SubResource("CircleShape2D_jjkqu")
 
 [node name="Graves" type="Sprite2D" parent="."]
-position = Vector2(-29, -78)
 texture = ExtResource("2_hnudw")
 hframes = 2
 vframes = 2
@@ -52,9 +51,10 @@ scale = Vector2(16, 16)
 shape = SubResource("CircleShape2D_hnudw")
 
 [node name="Button" type="Button" parent="."]
-offset_left = -157.0
-offset_top = -127.0
-offset_bottom = -85.0
+offset_left = -122.0
+offset_top = -90.0
+offset_right = 35.0
+offset_bottom = -48.0
 theme_override_colors/font_hover_color = Color(0.92941177, 0.4862745, 0, 1)
 theme_override_fonts/font = ExtResource("3_jjkqu")
 theme_override_font_sizes/font_size = 40

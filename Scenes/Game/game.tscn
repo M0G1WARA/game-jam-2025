@@ -16,6 +16,7 @@ offset_right = 1280.0
 offset_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(4, 4)
 texture = ExtResource("5_ciybh")
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -23,5 +24,6 @@ texture = ExtResource("5_ciybh")
 [node name="HUD" parent="." instance=ExtResource("2_qxfds")]
 
 [node name="Camera" parent="." instance=ExtResource("6_vifcx")]
+offset = Vector2(2500, 1200)
 
 [node name="Light" type="CanvasModulate" parent="."]
