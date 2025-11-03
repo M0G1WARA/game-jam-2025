@@ -85,6 +85,7 @@ Luz
 [node name="VSlider" type="VSlider" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 360)
 layout_mode = 2
+focus_mode = 0
 max_value = 1.0
 step = 0.1
 value = 1.0

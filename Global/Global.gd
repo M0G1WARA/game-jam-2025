@@ -19,3 +19,5 @@ var camera_data = {
 	"position": Vector2.ZERO,
 	"zoom": Vector2.ONE
 }
+
+var light = 0.8

@@ -4,6 +4,7 @@ extends Node2D
 var grave_scene = preload("res://Scenes/Grave/grave.tscn")
 
 func _ready():
+	$HUD.get_node("MarginContainer/VBoxContainer/VSlider").value = Global.light
 	load_objects()
 	Transition.fade_in()
 	await Transition.transition_finished

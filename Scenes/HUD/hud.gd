@@ -48,6 +48,7 @@ func create_object_panels():
 
 
 func _on_v_slider_value_changed(value):
+	Global.light = value
 	if is_horizontal:
 		get_owner().get_node("Light").color = Color(value, value, value, 255)
 	else:

@@ -7,6 +7,7 @@ var current_id: int = -1
 
 func _ready():
 	set_data(Global.decoration_data)
+	$Default/HUD.get_node("MarginContainer/VBoxContainer/VSlider").value = Global.light
 	Transition.fade_in()
 	await Transition.transition_finished
 
