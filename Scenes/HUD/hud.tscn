@@ -30,10 +30,15 @@ custom_minimum_size = Vector2(136, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="FlowContainer" type="FlowContainer" parent="MarginContainer/VPanel"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VPanel"]
+clip_contents = false
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 20.0
+offset_bottom = 700.0
+horizontal_scroll_mode = 0
+
+[node name="FlowContainer" type="FlowContainer" parent="MarginContainer/VPanel/ScrollContainer"]
+layout_mode = 2
 theme_override_constants/v_separation = 40
 
 [node name="HPanel" type="Panel" parent="MarginContainer"]

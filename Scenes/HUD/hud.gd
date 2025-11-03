@@ -8,10 +8,10 @@ var scene_to_instance_grave = preload("res://Scenes/Grave/grave.tscn")
 var graves = 4
 
 var scene_to_instance_object = preload("res://Scenes/Object/object.tscn")
-var objects = 2
+var objects = 6
 
 @onready var flow_containerH = $MarginContainer/HPanel/FlowContainer
-@onready var flow_containerV = $MarginContainer/VPanel/FlowContainer
+@onready var flow_containerV = $MarginContainer/VPanel/ScrollContainer/FlowContainer
 
 
 func _ready():

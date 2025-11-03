@@ -45,7 +45,7 @@ func _on_gui_input(event):
 						var new_instance = scene_to_instance.instantiate()
 						new_instance.global_position = get_viewport().get_canvas_transform().affine_inverse() * get_viewport().get_mouse_position()
 						new_instance.assign_image_by_id(frame_index)
-						get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_node("Decoration").add_child(new_instance)
+						get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_node("Decoration").add_child(new_instance)
 
 	if event is InputEventMouseMotion and is_dragging:
 		preview.global_position = get_global_mouse_position()
