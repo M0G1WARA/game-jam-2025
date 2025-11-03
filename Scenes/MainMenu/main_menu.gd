@@ -20,3 +20,9 @@ func _on_button_2_pressed():
 	Transition.fade_out()
 	await Transition.transition_finished
 	get_tree().change_scene_to_file("res://Scenes/Game/game.tscn")
+
+
+func _on_button_3_pressed():
+	Transition.fade_out()
+	await Transition.transition_finished
+	get_tree().change_scene_to_file("res://Scenes/Credits/credits.tscn")
