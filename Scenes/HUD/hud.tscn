@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0v2ab5c0mnge"]
+[gd_scene load_steps=6 format=3 uid="uid://d0v2ab5c0mnge"]
 
 [ext_resource type="Script" uid="uid://b3lhgng8n7yq4" path="res://Scenes/HUD/hud.gd" id="1_5aai8"]
 [ext_resource type="FontFile" uid="uid://bi7q65npobhdr" path="res://Font/Yeast/Yeast.otf" id="2_5aai8"]
@@ -6,6 +6,8 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a56j6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k83ni"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5aai8"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_5aai8")
@@ -71,6 +73,18 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_k83ni")
 text = "Editar"
 flat = true
 
+[node name="MenuButton" type="Button" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_hover_color = Color(0.92941177, 0.4862745, 0, 1)
+theme_override_fonts/font = ExtResource("2_5aai8")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k83ni")
+text = "Menu"
+flat = true
+
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
@@ -90,6 +104,56 @@ max_value = 1.0
 step = 0.1
 value = 1.0
 
+[node name="Panel" type="Panel" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+
+[node name="Button" type="Button" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.92941177, 0.4862745, 0, 1)
+theme_override_fonts/font = ExtResource("2_5aai8")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5aai8")
+text = "Guardar y Salir"
+flat = true
+
+[node name="Button2" type="Button" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.92941177, 0.4862745, 0, 1)
+theme_override_fonts/font = ExtResource("2_5aai8")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5aai8")
+text = "Salir sin Guardar"
+flat = true
+
+[node name="Button3" type="Button" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.92941177, 0.4862745, 0, 1)
+theme_override_fonts/font = ExtResource("2_5aai8")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5aai8")
+text = "Cancelar"
+flat = true
+
 [connection signal="pressed" from="MarginContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="MarginContainer/EditButton" to="." method="_on_edit_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/VSlider" to="." method="_on_v_slider_value_changed"]
+[connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]

@@ -136,7 +136,7 @@ theme_override_colors/font_hover_color = Color(0.92941177, 0.4862745, 0, 1)
 theme_override_fonts/font = ExtResource("3_0qgbs")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0qgbs")
-text = "Controles"
+text = "Continuar"
 flat = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

@@ -19,11 +19,13 @@ func _ready():
 	
 	if is_horizontal:
 		$MarginContainer/HPanel.show()
+		$MarginContainer/MenuButton.show()
 		$MarginContainer/VPanel.hide()
 		$MarginContainer/BackButton.hide()
 		$MarginContainer/EditButton.hide()
 	else:
 		$MarginContainer/HPanel.hide()
+		$MarginContainer/MenuButton.hide()
 		$MarginContainer/VPanel.show()
 		$MarginContainer/BackButton.show()
 		$MarginContainer/EditButton.show()
@@ -57,3 +59,24 @@ func _on_v_slider_value_changed(value):
 
 func _on_edit_button_pressed():
 	Global.options_visible = not Global.options_visible
+
+
+func _on_menu_button_pressed():
+	$MarginContainer/Panel.show()
+
+
+func _on_button_pressed():
+	Global.save_game()
+	Transition.fade_out()
+	await Transition.transition_finished
+	get_tree().change_scene_to_file("res://Scenes/MainMenu/main_menu.tscn")
+
+
+func _on_button_2_pressed():
+	Transition.fade_out()
+	await Transition.transition_finished
+	get_tree().change_scene_to_file("res://Scenes/MainMenu/main_menu.tscn")
+
+
+func _on_button_3_pressed():
+	$MarginContainer/Panel.hide()
