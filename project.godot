@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="GameJam2025"
+config/name="Luz de Cempasúchil"
+config/version="1.0.0"
 run/main_scene="uid://gqlnxp4hi0je"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/show_image=false
