@@ -6,7 +6,7 @@ var light_objects = [1]
 func _ready():
 	var edit_button = get_parent().get_node_or_null("Default/HUD/MarginContainer/EditButton")
 	if edit_button != null:
-		get_parent().get_node("Default").get_node("HUD").get_node("MarginContainer").get_node("EditButton").connect("pressed", Callable(self, "options"))
+		edit_button.connect("pressed", Callable(self, "options"))
 		options()
 
 func assign_image_by_id(texture_id: int):

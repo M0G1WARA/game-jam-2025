@@ -10,6 +10,10 @@ func _ready():
 	$Default/HUD.get_node("MarginContainer/VBoxContainer/VSlider").value = Global.light
 	Transition.fade_in()
 	await Transition.transition_finished
+	var edit_button = $Default/HUD.get_node_or_null("MarginContainer/EditButton")
+	if edit_button != null:
+		edit_button.connect("pressed", Callable(self, "options"))
+		options()
 
 func set_data(data):
 	current_id = data.get("id", -1)
@@ -41,3 +45,24 @@ func load_objects():
 		new_object.position = grave_node.to_global(child_data[0])
 		new_object.assign_image_by_id(child_data[1])
 		add_child(new_object)
+
+func options():
+	if Global.options_visible:
+		$Default/Button.show()
+	else:
+		$Default/Button.hide()
+
+
+func _on_button_pressed():
+	remove_grave_by_id()
+	Transition.fade_out()
+	await Transition.transition_finished
+	get_tree().change_scene_to_file("res://Scenes/Game/game.tscn")
+
+func remove_grave_by_id():
+	for i in range(Global.instanced_graves.size() - 1, -1, -1):
+		var grave_data = Global.instanced_graves[i]
+		var current_id_data = grave_data[2]
+		if current_id_data == current_id:
+			Global.instanced_graves.remove_at(i)
+			return
