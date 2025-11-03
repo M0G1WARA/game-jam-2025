@@ -7,6 +7,8 @@ var current_id: int = -1
 
 func _ready():
 	set_data(Global.decoration_data)
+	Transition.fade_in()
+	await Transition.transition_finished
 
 func set_data(data):
 	current_id = data.get("id", -1)
@@ -23,6 +25,8 @@ func save_objects():
 		if child.name == "Default":
 			continue
 		Global.instanced_objects[current_id].append([grave_node.to_local(child.global_position), child.get_image_id()])
+	Transition.fade_out()
+	await Transition.transition_finished
 	get_tree().change_scene_to_file("res://Scenes/Game/game.tscn")
 
 func load_objects():

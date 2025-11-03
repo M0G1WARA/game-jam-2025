@@ -5,6 +5,9 @@ var grave_scene = preload("res://Scenes/Grave/grave.tscn")
 
 func _ready():
 	load_objects()
+	Transition.fade_in()
+	await Transition.transition_finished
+	
 
 func save_objects():
 	if Global.next_id == 1:
