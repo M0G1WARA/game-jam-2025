@@ -14,3 +14,8 @@ func get_new_id():
 
 var instanced_graves = []
 var instanced_objects: Dictionary = {}
+
+var camera_data = {
+	"position": Vector2.ZERO,
+	"zoom": Vector2.ONE
+}

@@ -5,6 +5,9 @@ extends Camera2D
 @export var min_zoom: Vector2 = Vector2(0.4, 0.4)
 @export var max_zoom: Vector2 = Vector2(4.0, 4.0)
 
+func _ready():
+	load_position()
+
 func _process(delta):
 	var input_dir = Vector2.ZERO
 
@@ -22,3 +25,16 @@ func _input(event):
 			zoom -= Vector2(zoom_speed, zoom_speed)
 			
 	zoom = zoom.clamp(min_zoom, max_zoom)
+
+func _notification(what):
+	if what == NOTIFICATION_PREDELETE:
+		save_position()
+
+func load_position():
+	if Global.camera_data["position"] != Vector2.ZERO or Global.camera_data["zoom"] != Vector2.ONE:
+		position = Global.camera_data["position"]
+		zoom = Global.camera_data["zoom"]
+
+func save_position():
+	Global.camera_data["position"] = position
+	Global.camera_data["zoom"] = zoom

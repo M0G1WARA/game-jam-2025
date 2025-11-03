@@ -5,3 +5,4 @@
 [node name="Camera" type="Camera2D"]
 offset = Vector2(640, 360)
 script = ExtResource("1_wmbm5")
+move_speed = 400.0
